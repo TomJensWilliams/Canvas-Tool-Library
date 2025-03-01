@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+      }
+
+      main {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <canvas
+        id="myCanvas"
+        width="1500"
+        height="750"
+        style="border: 2px solid black"
+      ></canvas>
+      <script type="module">
+        import {
+          createCircle,
+          createLine,
+          createRectangle,
+          createText,
+        } from './verrsions/v1/canvasTools.js';
+
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        createCircle({
+          context: ctx,
+          x: 95,
+          y: 50,
+          r: 40,
+          startAngle: 0,
+          endAngle: 2 * Math.PI,
+          strokeStyle: 'blue',
+          lineWidth: 20,
+          fillStyle: 'purple',
+        });
+
+        createLine({
+          context: ctx,
+          xStart: 20,
+          yStart: 300,
+          xChange: 300,
+          yChange: 50,
+          fillStyle: 'black',
+          strokeStyle: 'black',
+          lineWidth: 10,
+          lineCap: 'round',
+        });
+
+        createRectangle({
+          context: ctx,
+          x: 200,
+          y: 50,
+          width: 200,
+          height: 100,
+          strokeStyle: 'yellow',
+          lineWidth: '15',
+          fillStyle: 'red',
+        });
+
+        createText({
+          context: ctx,
+          text: 'My First Words',
+          x: 400,
+          y: 400,
+          maxWidth: 50,
+          font: '100px Verdana',
+          textBaseline: 'middle',
+          textAlign: 'center',
+          strokeStyle: 'black',
+          lineWidth: '1',
+          fillStyle: 'grey',
+        });
+      </script>
+    </main>
+  </body>
+</html>
